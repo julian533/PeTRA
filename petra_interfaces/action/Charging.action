@@ -1,0 +1,8 @@
+# action goal
+float32 goal_percentage
+---
+# action result
+bool success
+---
+# action feedback
+sensor_msgs/BatteryState feedback

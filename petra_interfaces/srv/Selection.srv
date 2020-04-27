@@ -1,0 +1,5 @@
+# available options to choose from
+string[] options
+---
+# gives back chosen option
+string selected
