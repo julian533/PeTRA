@@ -5,6 +5,8 @@ How to run:
 
 colcon build
 
+source ~/<ws>/install/setup.bash
+
 ros2 run petra_output_nodes Screen
 
 ros2 run petra_input_nodes Keyboard
