@@ -5,7 +5,12 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -q && \
     apt-get upgrade -yq && \
-    apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdata
+    apt-get install -yq wget curl git build-essential vim sudo lsb-release locales bash-completion tzdataRUN apt install libyaml-cpp-dev -y
+
+RUN pip3 install pytest-repeat
+RUN pip3 install pytest-cov
+RUN pip3 install pytest-rerunfailures
+    
 
 # Run and install ros2:dashing stuff
 RUN apt install -y curl gnupg lsb-release
