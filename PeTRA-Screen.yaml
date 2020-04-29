@@ -57,3 +57,64 @@ spec:
       restartPolicy: Always
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petra-communication
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petra-communication
+  template:
+    metadata:
+      labels:
+        app: petra-communication
+    spec:
+      containers:
+      - image: naju1012/petra:latest
+        command: ["/bin/bash", "-c"]
+        args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_service_nodes Communication"]
+       # securityContext:
+         # privileged: true
+        imagePullPolicy: IfNotPresent
+        name: ros2-camera
+      imagePullSecrets:
+      - name: docker-registry
+      nodeSelector:
+        role: slave2
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet      
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petra-centralcontrolunit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petra-centralcontrolunit
+  template:
+    metadata:
+      labels:
+        app: petra-centralcontrolunit
+    spec:
+      containers:
+      - image: naju1012/petra:latest
+        command: ["/bin/bash", "-c"]
+        args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_central_control CentralControlUnit"]
+       # securityContext:
+         # privileged: true
+        imagePullPolicy: IfNotPresent
+        name: ros2-camera
+      imagePullSecrets:
+      - name: docker-registry
+      nodeSelector:
+        role: slave1
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet      
+      
