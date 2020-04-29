@@ -25,4 +25,4 @@ RUN . /opt/ros/dashing/setup.sh \
 
 RUN cd ~
 
-CMD ros2 run petra_output_nodes Screen
+#CMD ros2 run petra_output_nodes Screen
