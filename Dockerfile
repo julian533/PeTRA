@@ -46,8 +46,8 @@ RUN /bin/bash -c "source /opt/ros/dashing/setup.bash"
 RUN chmod +x /opt/ros/dashing/setup.sh 
 
 RUN . /opt/ros/dashing/setup.sh \
-&& colcon build \
-&& source ~/PeTRA/install/setup.bash
+    && colcon build 
+#&& source ~/PeTRA/install/setup.bash
 
 RUN cd ~
 
