@@ -5,7 +5,7 @@ How to run:
 
 colcon build
 
-source ~/<ws>/install/setup.bash
+source ~/[ws]/install/setup.bash
 
 ros2 run petra_output_nodes Screen
 
