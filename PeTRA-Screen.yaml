@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: PeTRA-Screen
+  name: petra-screen
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: PeTRA-Screen
+      app: petra-screen
   template:
     metadata:
       labels:
-        app: PeTRA-Screen
+        app: petra-screen
     spec:
       containers:
       - image: naju1012/petra:latest
