@@ -1,6 +1,6 @@
-#FROM osrf/ros:dashing-desktop
+FROM osrf/ros:dashing-desktop
 #FROM osrf/ros2:devel
-FROM maxkratz/ros2dashing:latest
+#FROM maxkratz/ros2dashing:latest
 
 RUN apt update -q && apt upgrade -yq
 
