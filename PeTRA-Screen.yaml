@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: PeTRA-Screen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: PeTRA-Screen
+  template:
+    metadata:
+      labels:
+        app: PeTRA-Screen
+    spec:
+      containers:
+      - image: naju1012/petra:latest
+        command: ["/bin/bash", "-c"]
+        args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_output_nodes Screen"]
+       # securityContext:
+         # privileged: true
+        imagePullPolicy: IfNotPresent
+        name: ros2-camera
+      imagePullSecrets:
+      - name: docker-registry
+      nodeSelector:
+        role: slave2
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
