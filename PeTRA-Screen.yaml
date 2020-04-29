@@ -27,3 +27,33 @@ spec:
       restartPolicy: Always
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petra-keyboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petra-keyboard
+  template:
+    metadata:
+      labels:
+        app: petra-keyboard
+    spec:
+      containers:
+      - image: naju1012/petra:latest
+        command: ["/bin/bash", "-c"]
+        args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_input_nodes Keyboard"]
+       # securityContext:
+         # privileged: true
+        imagePullPolicy: IfNotPresent
+        name: ros2-camera
+      imagePullSecrets:
+      - name: docker-registry
+      nodeSelector:
+        role: slave1
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
