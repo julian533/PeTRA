@@ -113,7 +113,7 @@ spec:
       imagePullSecrets:
       - name: docker-registry
       nodeSelector:
-        role: slave1
+        role: slave2
       restartPolicy: Always
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet      
