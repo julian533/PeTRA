@@ -1,6 +1,6 @@
-FROM osrf/ros:dashing-desktop
+#FROM osrf/ros:dashing-desktop
 #FROM osrf/ros2:devel
-#FROM maxkratz/ros2dashing:latest
+FROM maxkratz/ros2dashing:latest
 
 RUN apt update -q && apt upgrade -yq
 
@@ -24,7 +24,7 @@ RUN . /opt/ros/dashing/setup.sh \
 #&& source ~/PeTRA/install/setup.bash
 
 RUN cd ~
-
+CMD ["bash"]
 #CMD ros2 run petra_output_nodes Screen
 #CMD ros2 run petra_input_nodes Keyboard
 #CMD ros2 run petra_service_nodes Communication
