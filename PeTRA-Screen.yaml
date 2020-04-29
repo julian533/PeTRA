@@ -16,10 +16,10 @@ spec:
       - image: naju1012/petra:latest
         command: ["/bin/bash", "-c"]
         args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_output_nodes Screen"]
-       # securityContext:
-         # privileged: true
+        securityContext:
+          privileged: true
         imagePullPolicy: IfNotPresent
-        name: ros2-camera
+        name: petra-screen
       imagePullSecrets:
       - name: docker-registry
       nodeSelector:
@@ -46,10 +46,10 @@ spec:
       - image: naju1012/petra:latest
         command: ["/bin/bash", "-c"]
         args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_input_nodes Keyboard"]
-       # securityContext:
-         # privileged: true
+        securityContext:
+          privileged: true
         imagePullPolicy: IfNotPresent
-        name: ros2-camera
+        name: petra-keyboard
       imagePullSecrets:
       - name: docker-registry
       nodeSelector:
@@ -76,10 +76,10 @@ spec:
       - image: naju1012/petra:latest
         command: ["/bin/bash", "-c"]
         args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_service_nodes Communication"]
-       # securityContext:
-         # privileged: true
+        securityContext:
+          privileged: true
         imagePullPolicy: IfNotPresent
-        name: ros2-camera
+        name: petra-communication
       imagePullSecrets:
       - name: docker-registry
       nodeSelector:
@@ -106,10 +106,10 @@ spec:
       - image: naju1012/petra:latest
         command: ["/bin/bash", "-c"]
         args: ["source /opt/ros/dashing/setup.bash && . install/local_setup.bash && ros2 run petra_central_control CentralControlUnit"]
-       # securityContext:
-         # privileged: true
+        securityContext:
+          privileged: true
         imagePullPolicy: IfNotPresent
-        name: ros2-camera
+        name: petra-centralcontrolunit
       imagePullSecrets:
       - name: docker-registry
       nodeSelector:
